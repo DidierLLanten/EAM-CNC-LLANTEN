@@ -1,0 +1,5 @@
+Nombre: Rosa
+Apellido: Bermudez
+Correo: rosabermudez@gmail.com
+RH: A+
+Estatura: 1,51 cm

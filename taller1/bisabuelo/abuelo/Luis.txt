@@ -1,0 +1,5 @@
+Nombre: Luis
+Apellido: LLanten
+Correo: luisllanten@gmail.com
+RH: A+
+Estatura: 1,72 cm
