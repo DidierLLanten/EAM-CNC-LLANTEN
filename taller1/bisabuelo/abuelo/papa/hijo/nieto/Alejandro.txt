@@ -1,0 +1,5 @@
+Nombre: Alejandro
+Apellido: LLanten
+Correo: alejandrollanten@gmail.com
+RH: O-
+Estatura: 1,82 cm

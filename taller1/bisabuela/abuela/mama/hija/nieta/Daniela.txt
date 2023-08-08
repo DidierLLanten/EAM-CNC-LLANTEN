@@ -1,0 +1,5 @@
+Nombre: Daniela
+Apellido: LLanten
+Correo: danielallanten@gmail.com
+RH: O+
+Estatura: 1,52 cm
