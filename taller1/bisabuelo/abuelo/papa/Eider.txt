@@ -1,0 +1,5 @@
+Nombre: Eider
+Apellido: LLanten
+Correo: eiderllanten@gmail.com
+RH: B-
+Estatura: 1,60 cm

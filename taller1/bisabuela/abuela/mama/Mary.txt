@@ -1,0 +1,5 @@
+Nombre: Mary
+Apellido: Velez
+Correo: maryvelez@gmail.com
+RH: B+
+Estatura: 1,55 cm
