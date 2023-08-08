@@ -1,0 +1,5 @@
+nombre: Margarita
+apellido: Velez
+correo: margaritavelez@gmail.com
+RH: o+
+estatura: 1,55 cm
