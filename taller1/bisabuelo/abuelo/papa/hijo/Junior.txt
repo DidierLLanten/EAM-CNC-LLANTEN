@@ -1,0 +1,5 @@
+Nombre: Junior
+Apellido: LLanten
+Correo; juniorllanten@gmail.com
+RH: AB+
+Estatura: 1,63 cm

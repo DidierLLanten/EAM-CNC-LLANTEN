@@ -1,0 +1,5 @@
+Nombre: Karen
+Apellido: LLanten
+Correo: karenllanten@gmail.com
+RH: AB-
+Estatura: 1,72 cm
