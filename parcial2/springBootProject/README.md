@@ -36,7 +36,7 @@ COPY target/api-0.0.1-SNAPSHOT.jar java-app.jar
 ENTRYPOINT ["java", "-jar", "java-app.jar"]
 ```
 
-3. Create the docker-compose.yml with the two services we need, make the java_app service depend on java_db and add a volume to the java_db to persist the information.
+3. Create the docker-compose.yml with the two services we need, make the java_app service depend on java_db and add a volume to the java_db to persist the information, and set the environment variables written in the docker-compose.yml in the application.properties file.
 ```docker-compose.yml
 version: '3.9'
 services:
