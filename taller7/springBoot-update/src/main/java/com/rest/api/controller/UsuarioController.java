@@ -14,10 +14,9 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
-
-    // Actualizar una categoría existente por su ID
+    
     @PutMapping("/update/{id}")
-    public Optional<Usuario> updateCategoria(@PathVariable Integer id, @RequestBody Usuario usuarioDTO) {
+    public Optional<Usuario> updateUser(@PathVariable Integer id, @RequestBody Usuario usuarioDTO) {
         return usuarioService.updateUser(id, usuarioDTO);
     }
 }

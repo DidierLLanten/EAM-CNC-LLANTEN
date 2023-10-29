@@ -14,10 +14,9 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
-    
-    // Borrar una categoría por su ID
+        
     @DeleteMapping("/delete/{id}")
-    public void deleteCategoria(@PathVariable Integer id) {
+    public void deleteUser(@PathVariable Integer id) {
         usuarioService.deleteUser(id);
     }
 }

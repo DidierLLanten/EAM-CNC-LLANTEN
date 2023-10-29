@@ -16,7 +16,7 @@ sudo apt install maven
 ### Steps
 **These steps were executed on a VMware Ubuntu**
 
-1. Por cada proyecto ejecutar el siguiente comando, Locate the path to the application and compile it with either of the two commands.
+1. Localizate en cada proyecto y el siguiente comando.
    
   ```sh
   sudo mvn clean package -DskipTests
@@ -27,23 +27,24 @@ sudo apt install maven
   ./mvnw install -DskipTests
   ```
    
-2. Cada proyecto creaer el dockerfile con diferente nombre java-app, Create the Dockerfile with the snapshot information in my case is target/api-0.0.1-SNAPSHOT.jar.
+2. Para cada proyecto crear el Dockerfile con la informacion del snapshot en  mi caso es target/api-0.0.1-SNAPSHOT.jar y con diferente nombre java-app.
 ```dockerfile
 FROM openjdk:17-jdk-alpine
 
-COPY target/api-0.0.1-SNAPSHOT.jar java-app.jar
+COPY target/api-0.0.1-SNAPSHOT.jar java-app-create.jar
 
-ENTRYPOINT ["java", "-jar", "java-app.jar"]
+ENTRYPOINT ["java", "-jar", "java-app-create.jar"]
 ```
 
-3. Crear el docker compose con todos los proyectos, cada uno es un servicio, Create the docker-compose.yml with the two services we need, make the java_app service depend on java_db and add a volume to the java_db to persist the information, and set the environment variables written in the docker-compose.yml in the application.properties file.
+3. Crear el docker compose con todos los proyectos, cada uno es un servicio.
 ```docker-compose.yml
 version: '3.9'
 services:
-  java_app:
-    container_name: java_app
-    image: pee-java-app:1.0.0
-    build: .
+  java_app_create:
+    container_name: java_app_create
+    image: pee-java-app:1.0.0-create
+    build:
+      context: ./springBoot-create
     ports:
       - 8080:8080
     environment:
@@ -52,17 +53,46 @@ services:
       - DATABASE_PASSWORD=postgresdocker
     depends_on:
       - java_db
-  java_db:
-    container_name: java_db
-    image: postgres:15.4
+  java_app_delete:
+    container_name: java_app_delete
+    image: pee-java-app:1.0.0-delete
+    build:
+      context: ./springBoot-delete
     ports:
-      - 5432:5432
+      - 8081:8081
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgresdocker
-      - POSTGRES_DB=postgres
-    volumes:
-      - ./data_bd:/var/lib/postgresql/data
+      - DATABASE_URL=jdbc:postgresql://java_db:5432/postgres
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=postgresdocker
+    depends_on:
+      - java_db
+  java_app_read:
+    container_name: java_app_read
+    image: pee-java-app:1.0.0-read
+    build:
+      context: ./springBoot-read
+    ports:
+      - 8082:8082
+    environment:
+      - DATABASE_URL=jdbc:postgresql://java_db:5432/postgres
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=postgresdocker
+    depends_on:
+      - java_db
+  java_app_update:
+    container_name: java_app_update
+    image: pee-java-app:1.0.0-update
+    build:
+      context: ./springBoot-update
+    ports:
+      - 8083:8083
+    environment:
+      - DATABASE_URL=jdbc:postgresql://java_db:5432/postgres
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=postgresdocker
+    depends_on:
+      - java_db
+  java_db:
 ```
 
 4. In the root of the project create the folder where the volume will be stored, data_bd.
