@@ -2,7 +2,7 @@ version: '3.9'
 services:
   java_app_create:
     container_name: java_app_create
-    image: pee-java-app:1.0.0-create
+    image: imagen-create:1.0.0-create
     build:
       context: ./springBoot-create
     ports:
@@ -15,7 +15,7 @@ services:
       - java_db
   java_app_delete:
     container_name: java_app_delete
-    image: pee-java-app:1.0.0-delete
+    image: image-delete:1.0.0-delete
     build:
       context: ./springBoot-delete
     ports:
@@ -28,7 +28,7 @@ services:
       - java_db
   java_app_read:
     container_name: java_app_read
-    image: pee-java-app:1.0.0-read
+    image: image-read:1.0.0-read
     build:
       context: ./springBoot-read
     ports:
@@ -41,7 +41,7 @@ services:
       - java_db
   java_app_update:
     container_name: java_app_update
-    image: pee-java-app:1.0.0-update
+    image: image-update:1.0.0-update
     build:
       context: ./springBoot-update
     ports:

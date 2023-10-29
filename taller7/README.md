@@ -139,3 +139,6 @@ sudo docker-compose up --build
 7. Finally, To test the persistence in the database, you have to download the containers, upload them again and list the records, it should bring all the previously saved records.
    - Containers down `sudo docker-compose down`
    - Containers up `sudo docker-compose up`
+  
+8. Eliminar contenedores e imagenes
+  - `sudo docker-compose down --rmi all`
